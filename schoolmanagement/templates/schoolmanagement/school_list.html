@@ -1,0 +1,20 @@
+{% extends "base_list.html" %}
+{% block list-title %}Lista Scuole{% endblock %}
+{% block list-header %}
+    <th>Nome</th>
+    <th>Indirizzo</th>
+    <th>Telefono</th>
+    <th>Email</th>
+    <th></th>
+{% endblock %}
+{% block list-body %}
+    {% for school in object_list %}
+        <tr>
+            <td>{{ school.name }}</td>
+            <td>{{ school.indirizzo_completo }}</td>
+            <td>{{ school.phone|default:"-" }}</td>
+            <td>{{ school.email|default:"-" }}</td>
+            <td><a href="{% url 'school_detail' school.pk %}">Dettagli</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}

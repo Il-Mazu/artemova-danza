@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{% block detail-title %}Dettaglio{% endblock %}</h1>
+    {% block detail-content %}{% endblock %}
+    <a href="javascript:history.back()" class="btn btn-secondary mt-3">Indietro</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base_detail.html" %}
+{% block detail-title %}{{ object.name }}{% endblock %}
+{% block detail-content %}
+    <p><strong>Indirizzo:</strong> {{ object.indirizzo_completo }}</p>
+    <p><strong>Paese:</strong> {{ object.country }}</p>
+    {% if object.phone %}
+        <p><strong>Telefono:</strong> {{ object.phone }}</p>
+    {% endif %}
+    {% if object.email %}
+        <p><strong>Email:</strong> {{ object.email }}</p>
+    {% endif %}
+    {% if object.website %}
+        <p><strong>Sito web:</strong> <a href="{{ object.website }}">{{ object.website }}</a></p>
+    {% endif %}
+    {% if object.vat %}
+        <p><strong>P.IVA:</strong> {{ object.vat }}</p>
+    {% endif %}
+{% endblock %}
