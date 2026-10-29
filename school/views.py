@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from school.models import DayOfTheWeek, Classroom
+from school.models import DayOfTheWeek, Classroom, Course
 
 
 class DayOfTheWeekListView(ListView):
@@ -16,3 +16,11 @@ class ClassroomListView(ListView):
 
 class ClassroomDetailView(DetailView):
     model = Classroom
+
+
+class CourseListView(ListView):
+    model = Course
+
+
+class CourseDetailView(DetailView):
+    model = Course

@@ -1,0 +1,20 @@
+{% extends "base_list.html" %}
+{% block list-title %}Corsi{% endblock %}
+{% block list-header %}
+    <th>Materia</th>
+    <th>Giorno</th>
+    <th>Ora</th>
+    <th>Aula</th>
+    <th></th>
+{% endblock %}
+{% block list-body %}
+    {% for course in object_list %}
+        <tr>
+            <td>{{ course.subject }}</td>
+            <td>{{ course.day_of_the_week }}</td>
+            <td>{{ course.starting_hour }}</td>
+            <td>{{ course.classroom }}</td>
+            <td><a href="{% url 'course_detail' course.pk %}">Dettagli</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}
