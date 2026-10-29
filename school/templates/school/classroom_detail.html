@@ -1,0 +1,6 @@
+{% extends "base_detail.html" %}
+{% block detail-title %}{{ object.name }}{% endblock %}
+{% block detail-content %}
+    <p><strong>Nome:</strong> {{ object.name }}</p>
+    <p><strong>Capacità:</strong> {{ object.capacity }} posti</p>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base_list.html" %}
+{% block list-title %}Aule{% endblock %}
+{% block list-header %}
+    <th>Nome</th>
+    <th>Capacità</th>
+    <th></th>
+{% endblock %}
+{% block list-body %}
+    {% for classroom in object_list %}
+        <tr>
+            <td>{{ classroom.name }}</td>
+            <td>{{ classroom.capacity }}</td>
+            <td><a href="{% url 'classroom_detail' classroom.pk %}">Dettagli</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}
