@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from school.models import DayOfTheWeek, Classroom, Course
 
 
@@ -39,3 +39,8 @@ class CourseUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("course_detail", kwargs={"pk": self.object.pk})
+
+
+class CourseDeleteView(DeleteView):
+    model = Course
+    success_url = reverse_lazy("course_list")

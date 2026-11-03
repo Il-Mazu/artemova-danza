@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Elimina Corso{% endblock %}
+{% block content %}
+    <h1>Conferma Eliminazione</h1>
+    <p>Sei sicuro di voler eliminare il corso <strong>{{ object.subject }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Elimina</button>
+        <a href="{% url 'course_list' %}" class="btn btn-secondary">Annulla</a>
+    </form>
+{% endblock %}
