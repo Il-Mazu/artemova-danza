@@ -6,4 +6,6 @@
     <p><strong>Ora inizio:</strong> {{ object.starting_hour }}</p>
     <p><strong>Aula:</strong> {{ object.classroom }}</p>
     <p><strong>Scuola:</strong> {{ object.school }}</p>
+    <a href="{% url 'course_update' object.pk %}" class="btn btn-warning">Modifica</a>
+    <a href="{% url 'course_list' %}" class="btn btn-secondary">Torna alla lista</a>
 {% endblock %}

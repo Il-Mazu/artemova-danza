@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {% if object %}Modifica Corso{% else %}Nuovo Corso{% endif %}
+{% endblock %}
+{% block content %}
+    {% if object %}
+        <h1>Modifica Corso</h1>
+    {% else %}
+        <h1>Nuovo Corso</h1>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Salva</button>
+        <a href="{% url 'course_list' %}" class="btn btn-secondary">Annulla</a>
+    </form>
+{% endblock %}

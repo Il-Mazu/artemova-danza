@@ -6,6 +6,7 @@
     <th>Ora</th>
     <th>Aula</th>
     <th></th>
+    <th></th>
 {% endblock %}
 {% block list-body %}
     {% for course in object_list %}
@@ -15,6 +16,10 @@
             <td>{{ course.starting_hour }}</td>
             <td>{{ course.classroom }}</td>
             <td><a href="{% url 'course_detail' course.pk %}">Dettagli</a></td>
+            <td><a href="{% url 'course_update' course.pk %}">Modifica</a></td>
         </tr>
     {% endfor %}
+{% endblock %}
+{% block list-footer %}
+    <a href="{% url 'course_create' %}" class="btn btn-primary mt-2">Aggiungi Corso</a>
 {% endblock %}

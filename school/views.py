@@ -1,4 +1,5 @@
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from school.models import DayOfTheWeek, Classroom, Course
 
 
@@ -24,3 +25,17 @@ class CourseListView(ListView):
 
 class CourseDetailView(DetailView):
     model = Course
+
+
+class CourseCreateView(CreateView):
+    model = Course
+    fields = ["subject", "day_of_the_week", "starting_hour", "classroom", "school"]
+    success_url = reverse_lazy("course_list")
+
+
+class CourseUpdateView(UpdateView):
+    model = Course
+    fields = ["subject", "day_of_the_week", "starting_hour", "classroom", "school"]
+
+    def get_success_url(self):
+        return reverse_lazy("course_detail", kwargs={"pk": self.object.pk})
