@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # terze parti
+    "crispy_forms",
+    "crispy_bootstrap5",
     # app
     "schoolmanagement",
     "school",
@@ -63,6 +66,9 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 WSGI_APPLICATION = "dance_school_project.wsgi.application"
 
