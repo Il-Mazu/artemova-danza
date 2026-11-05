@@ -4,6 +4,8 @@
     <th>Nome</th>
     <th>Capacità</th>
     <th></th>
+    <th></th>
+    <th></th>
 {% endblock %}
 {% block list-body %}
     {% for classroom in object_list %}
@@ -11,6 +13,11 @@
             <td>{{ classroom.name }}</td>
             <td>{{ classroom.capacity }}</td>
             <td><a href="{% url 'classroom_detail' classroom.pk %}">Dettagli</a></td>
+            <td><a href="{% url 'classroom_update' classroom.pk %}">Modifica</a></td>
+            <td><a href="{% url 'classroom_delete' classroom.pk %}">Elimina</a></td>
         </tr>
     {% endfor %}
+{% endblock %}
+{% block list-footer %}
+    <a href="{% url 'classroom_create' %}" class="btn btn-primary mt-2">Nuova Aula</a>
 {% endblock %}

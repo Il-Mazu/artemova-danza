@@ -19,6 +19,25 @@ class ClassroomDetailView(DetailView):
     model = Classroom
 
 
+class ClassroomCreateView(CreateView):
+    model = Classroom
+    fields = ["name", "capacity"]
+    success_url = reverse_lazy("classroom_list")
+
+
+class ClassroomUpdateView(UpdateView):
+    model = Classroom
+    fields = ["name", "capacity"]
+
+    def get_success_url(self):
+        return reverse_lazy("classroom_detail", kwargs={"pk": self.object.pk})
+
+
+class ClassroomDeleteView(DeleteView):
+    model = Classroom
+    success_url = reverse_lazy("classroom_list")
+
+
 class CourseListView(ListView):
     model = Course
 

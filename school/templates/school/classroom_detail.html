@@ -3,4 +3,13 @@
 {% block detail-content %}
     <p><strong>Nome:</strong> {{ object.name }}</p>
     <p><strong>Capacità:</strong> {{ object.capacity }} posti</p>
+    {% if object.courses.count %}
+        <h3>Corsi in questa aula</h3>
+        <ul>
+            {% for course in object.courses.all %}
+                <li><a href="{% url 'course_detail' course.pk %}">{{ course }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{% url 'classroom_update' object.pk %}" class="btn btn-warning">Modifica</a>
 {% endblock %}
