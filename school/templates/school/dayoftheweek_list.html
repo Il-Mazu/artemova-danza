@@ -4,6 +4,7 @@
     <th>Numero</th>
     <th>Nome</th>
     <th></th>
+    <th></th>
 {% endblock %}
 {% block list-body %}
     {% for day in object_list %}
@@ -11,6 +12,10 @@
             <td>{{ day.number }}</td>
             <td>{{ day.name }}</td>
             <td><a href="{% url 'dayoftheweek_detail' day.pk %}">Dettagli</a></td>
+            <td><a href="{% url 'dayoftheweek_update' day.pk %}">Modifica</a></td>
         </tr>
     {% endfor %}
+{% endblock %}
+{% block list-footer %}
+    <a href="{% url 'dayoftheweek_create' %}" class="btn btn-primary mt-2">Aggiungi Giorno</a>
 {% endblock %}

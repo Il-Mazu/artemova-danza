@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {% if object %}Modifica Giorno{% else %}Nuovo Giorno{% endif %}
+{% endblock %}
+{% block content %}
+    {% if object %}
+        <h1>Modifica Giorno</h1>
+    {% else %}
+        <h1>Nuovo Giorno della Settimana</h1>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Salva</button>
+        <a href="{% url 'dayoftheweek_list' %}" class="btn btn-secondary">Annulla</a>
+    </form>
+{% endblock %}
